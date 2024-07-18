@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <!-- // font-awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <title>fanzz payment</title>
+</head>
+<!-- style  -->
+<body>
+    <div class="warning"><i class="fa-solid fa-circle-exclamation"></i> เลขบัญชีใช้ในการโอนเงิน</div>
+    <div class="bank-container">
+        <div class="bank-card">
+            <img src="https://img2.pic.in.th/pic/kbank-logo.png" alt="Kbank Logo" class="bank-logo">
+            <div class="bank-name">กสิกรไทย</div>
+            <div class="account-number" id="account-number-1">0488652605</div>
+            <button class="copy-button" onclick="copyToClipboard('account-number-1')"><i class="fa-solid fa-copy"></i> คัดลอก</button>
+            <div class="copied" id="copied-1">คัดลอกแล้ว!</div>
+        </div>
+        <div class="bank-card">
+            <img src="https://img2.pic.in.th/pic/ktb-logo.png" alt="KTB Logo" class="bank-logo">
+            <div class="bank-name">กรุงไทย</div>
+            <div class="account-number" id="account-number-2">0440342120</div>
+            <button class="copy-button" onclick="copyToClipboard('account-number-2')"><i class="fa-solid fa-copy"></i> คัดลอก</button>
+            <div class="copied" id="copied-2">คัดลอกแล้ว!</div>
+        </div>
+    </div>
+    <div class="account-holder">
+        ชื่อบัญชี : อัฟฟาน สือรี<br>
+        Name :  Affan Sueree
+    </div>
+  <div class="quotation-holder">
+        Life is full of regrets,<br>
+        but it doesn't pay to look back.
+  </div>
+<!-- body qrcode   -->
+  <div class="container">
+    <img src="https://img5.pic.in.th/file/secure-sv1/promptpay-logo.png" alt="QR Logo" class="qr-logo">
+        <h2>สแกนจ่าย QRcode</h2>
+        <input type="number" id="amount" placeholder="ระบุจำนวนเงิน"/>
+        <div id="qrcode"></div>
+        <button onclick="saveQRCode()"><i class="fa-regular fa-images"></i> บันทึกภาพ QRcode</button>
+    </div>
+  <!-- script generate qrcode   -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<!-- body follow me   -->
+  <div class="container">
+      <img src="https://img2.pic.in.th/pic/followmee.png" alt="follow me" class="follow-logo"><br>     <!--<h3>Follow Me</h3> https://img5.pic.in.th/file/secure-sv1/followme.png-->
+        <button1 onclick="youtube()"><i class="fa-brands fa-youtube"></i> Youtube channel</button1><br></br>
+        <button2 onclick="instagram()"><i class="fa-brands fa-instagram"></i> Instagram</button2>
+        <button3 onclick="facebook()"><i class="fa-brands fa-square-facebook"></i> Facebook</button3><br></br>
+        <button4 onclick="shopee()"><i class="fa-brands fa-shopify"></i> Shopee</button4> 
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
