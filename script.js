@@ -16,7 +16,7 @@ function generateQRCode() {
 }
 
 function generatePromptPayPayload(amount) {
-    const promptpayID = "1101100083542"; // Replace with your PromptPay ID
+    const promptpayID = "0944702228"; // Replace with your PromptPay ID
     let payload = `00020101021129370016A00000067701011101130066${promptpayID}53037645802TH${amount}5802TH6304`;
     const crc = calculateCRC16(payload);
     payload += crc;
