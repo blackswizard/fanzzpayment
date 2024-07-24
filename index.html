@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <!-- // font-awesome -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <!-- // font-awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+    <script src="https://fastly.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script> 
     <title>fanzz payment</title>
 </head>
-<!-- style  -->
 <body>
     <div class="warning"><i class="fa-solid fa-circle-exclamation"></i> เลขบัญชีใช้ในการโอนเงิน</div>
     <div class="bank-container">
@@ -32,28 +32,149 @@
         ชื่อบัญชี : อัฟฟาน สือรี<br>
         Name :  Affan Sueree
     </div>
-  <div class="quotation-holder">
+    <div class="quotation-holder">
         Life is full of regrets,<br>
         but it doesn't pay to look back.
+    </div>
+    <!-- body qrcode -->
+    <div class="container">
+  <img src="https://img5.pic.in.th/file/secure-sv1/promptpay-logo.png" alt="QR Logo" class="qr-logo">
+  <h2>สแกนจ่าย QRcode</h2>
+  <input type="number" inputmode="numeric" id="amount" min="0" step="1" placeholder="ระบุจำนวนเงิน"/>
+  <div id="qrcode">
+    <img id="qrcode-img" src="https://api.qrserver.com/v1/create-qr-code/?data=00020101021129370016A000000677010111011300669447022285802TH530376463046AAC&size=256x256&margin=10" alt="QR Code">
+    <img id="new-qrcode-img" src="" alt="QR Code">
   </div>
-<!-- body qrcode   -->
-  <div class="container">
-    <img src="https://img5.pic.in.th/file/secure-sv1/promptpay-logo.png" alt="QR Logo" class="qr-logo">
-        <h2>สแกนจ่าย QRcode</h2>
-        <input type="number" id="amount" placeholder="ระบุจำนวนเงิน"/>
-        <div id="qrcode"></div>
-        <button onclick="saveQRCode()"><i class="fa-regular fa-images"></i> บันทึกภาพ QRcode</button>
-    </div>
-  <!-- script generate qrcode   -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-<!-- body follow me   -->
-  <div class="container">
-      <img src="https://img2.pic.in.th/pic/followmee.png" alt="follow me" class="follow-logo"><br>     <!--<h3>Follow Me</h3> https://img5.pic.in.th/file/secure-sv1/followme.png-->
-        <button1 onclick="youtube()"><i class="fa-brands fa-youtube"></i> Youtube channel</button1><br></br>
+  <div id="amount-display"></div>
+  <button onclick="saveQRCode()"><i class="fa-regular fa-images"></i> บันทึกภาพ QRcode</button>
+</div>
+      <!-- body follow me -->
+    <div class="container">
+        <img src="https://img2.pic.in.th/pic/follow-me.png" alt="follow me" class="follow-logo"><br>     
+        <button1 onclick="youtube()"><i class="fa-brands fa-youtube"></i> Youtube channel</button1><br><br>
         <button2 onclick="instagram()"><i class="fa-brands fa-instagram"></i> Instagram</button2>
-        <button3 onclick="facebook()"><i class="fa-brands fa-square-facebook"></i> Facebook</button3><br></br>
+        <button3 onclick="facebook()"><i class="fa-brands fa-square-facebook"></i> Facebook</button3><br><br>
         <button4 onclick="shopee()"><i class="fa-brands fa-shopify"></i> Shopee</button4> 
-    </div>
-    <script src="script.js"></script>
+    </div>  
+                              <!--   script qrcode    -->
+<script type="module">
+    import promptpayQr from 'https://fastly.jsdelivr.net/npm/promptpay-qr@0.5.0/+esm'
+    window.promptpayQr = promptpayQr
+
+    let lastAmount = null;
+
+    function updateQRCode() {
+        let amount = Number(document.getElementById('amount').value);
+        const amountDisplay = document.getElementById('amount-display');
+        if (amount !== lastAmount) {
+            let x = promptpayQr('0944702228', {amount: amount});
+            const newQRCodeImg = document.getElementById('new-qrcode-img');
+            newQRCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(x) + '&size=256x256&margin=10';
+            lastAmount = amount;
+
+            newQRCodeImg.onload = () => {
+                newQRCodeImg.style.opacity = 1;
+                setTimeout(() => {
+                    const qrCodeImg = document.getElementById('qrcode-img');
+                    qrCodeImg.src = newQRCodeImg.src;
+                    newQRCodeImg.style.opacity = 0;
+                }, 500);
+            };
+
+            amountDisplay.textContent = amount > 0 ? `ยอดเงิน : ${amount} บาท` : '';
+        }
+    }
+
+    document.getElementById('amount').addEventListener('input', updateQRCode);
+
+    function generateInitialQRCode() {
+        let x = promptpayQr('0944702228');
+        const qrCodeImg = document.getElementById('qrcode-img');
+        qrCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(x) + '&size=256x256&margin=10';
+        document.getElementById('amount-display').textContent = '';
+    }
+
+    generateInitialQRCode();
+</script>
+                              <!--   script save qrcode    -->
+<script>
+    function saveQRCode() {
+        const qrcodeContainer = document.getElementById('qrcode').querySelector('img');
+        const amountText = document.getElementById('amount-display').textContent;
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = new Image();
+        img.crossOrigin = 'Anonymous';
+        img.src = qrcodeContainer.src;
+    //       เริ่มต้นรูปแบบมีสี background ตัวเลข
+        img.onload = function() {
+            const padding = 10;
+            const fontSize = 18;
+            const textPadding = 5;  // เพิ่ม padding รอบข้อความ
+            canvas.width = img.width;
+            canvas.height = img.height + fontSize + padding;
+
+     // ภาพบน canvas
+            ctx.drawImage(img, 0, 0);
+
+     // กำหนดค่าฟอนต์สำหรับข้อความ
+            ctx.font = `${fontSize}px Sriracha`;
+            ctx.textAlign = 'center';
+
+     // ขนาดของพื้นหลังข้อความ
+            const textWidth = ctx.measureText(amountText).width;
+            const backgroundWidth = textWidth + textPadding * 2;
+            const backgroundHeight = fontSize + textPadding * 2;
+            const backgroundX = (canvas.width - backgroundWidth) / 2;
+            const backgroundY = img.height;
+
+     // พื้นหลังข้อความ
+            ctx.fillStyle = '#008000';
+            ctx.fillRect(backgroundX, backgroundY, backgroundWidth, backgroundHeight);
+
+     // ข้อความสีบนพื้นหลัง
+            ctx.fillStyle = '#FFFFFF';
+            ctx.fillText(amountText, canvas.width / 2, img.height + fontSize + textPadding);
+            const link = document.createElement('a');
+            link.href = canvas.toDataURL('image/png');
+            link.download = 'qrcode.png';
+            link.click();
+        };
+    }
+</script>
+                              <!--  Copy account number to clipboard  -->
+    <script> 
+function copyToClipboard(elementId) {
+            var copyText = document.getElementById(elementId).textContent;
+            var tempInput = document.createElement("input");
+            document.body.appendChild(tempInput);
+            tempInput.value = copyText;
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            var copiedMessage = document.getElementById('copied-' + elementId.split('-')[2]);
+            copiedMessage.classList.add('show');
+            setTimeout(function() {
+                copiedMessage.classList.remove('show');
+            }, 2000);
+        }
+    </script>
+                              <!--  script button link open social media  -->
+  <script>
+        function youtube() { 
+            window.open("https://www.youtube.com/@funfanfann");
+            }
+        function instagram() { 
+            window.open("https://www.instagram.com/fanz__13");
+            }
+        function facebook() { 
+            window.open("https://www.facebook.com/fanz8151");
+            }
+        function shopee() { 
+            window.open("https://shopee.co.th/1three_store");
+            }
+  </script>
+
 </body>
 </html>
