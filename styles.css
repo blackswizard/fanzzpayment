@@ -1,198 +1,219 @@
 body {
-    font-family: "Sriracha", cursive; /*kanit, sans-serif*/
-    background-color: #000;
-    color: #fff;
-    text-align: center;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /* justify-content: center; */
-    height: 140vh; /*กำหนดระยะห่างด้านบน*/
-    margin: 0;    
-}
-    /* block qrcode */
+            font-family: "Sriracha", cursive; /*kanit, sans-serif*/
+            background-color: #000;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;    
+        }
+            /* block qrcode */
 .container {
-    text-align: center;
-    color: #f7d317;
-    background-color: #333;
-    padding: 15px;
-    border-radius: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    margin-bottom: 0px; /*ระยะห่าง Block*/
-    margin-top: 5px;
-}
+            text-align: center;
+            color: #f7d317;
+            background-color: #333;
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            margin-bottom: 0px; /*ระยะห่าง Block*/
+            margin-top: 5px;
+        }
 .qr-logo {
-width: 120px;
-height: auto;
-border-radius: 10px;
+    width: 120px;
+    height: auto;
+    border-radius: 10px;
 }
 h2{
-margin: 10px;
-margin-top: -5px;
+    margin: 10px;
+    margin-top: -5px;
 }
 input {
-    padding: 5px;
-    font-family: Sriracha;
-    font-size: 16px;
-    text-align: center;
-    border: none;
-    border-radius: 5px;
-    margin: 5px 0;
-    margin-top: -20px;
-}
-/*hide spin button*/
-input::-webkit-outer-spin-button, 
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
+            padding: 5px;
+            font-family: Sriracha;
+            font-size: 16px;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            margin: 5px 0;
+            margin-top: -20px;
+        }
+        /*hide spin button*/
+        input::-webkit-outer-spin-button, 
+        input::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
 button {
-    padding: 5px 20px;
-    font-family: "Sriracha", cursive;
-    font-size: 16px;
-    color: white;
-    background-color: #f0ad4e;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-#qrcode {
-    margin: 10px 0;
-}
-/*block follow me*/
-.follow-logo {
-width: 120px;
-height: auto;
-margin: 5px;
-margin-top: -5px;
-}
-/* h3{
-margin: 15px;
-margin-top: -5px;
-} */
-/*button youtube*/
-button1 {
-    padding: 5px 20px;
-    font-family: "Sriracha", cursive;
-    font-size: 16px;
-    color: white;
-    background-color: #FF0000;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/*button instagram*/
-button2 {
-    padding: 5px 20px;
-    font-family: "Sriracha", cursive;
-    font-size: 16px;
-    color: white;
-    background: #f09433; /*color gradient*/
-    background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
-    background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/*button facebook*/
-button3 {
-    padding: 5px 20px;
-    font-family: "Sriracha", cursive;
-    font-size: 16px;
-    color: white;
-    background-color: #3b5998;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-/*button shopee*/
-button4 {
-    padding: 5px 20px;
-    font-family: "Sriracha", cursive;
-    font-size: 16px;
-    color: white;
-    background-color: #EE4D2D;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-    /* block bank */
-.warning {
-    color: #f7d317;
-    font-size: 20px;
-    margin-bottom: 20px;
-}
-.bank-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: -10px;
-    gap: 20px;
-}
-@media (min-width: 600px) {
-    .bank-container {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-.bank-card {
-    background-color: #1a1a1a;
-    padding: 10px;
-    border-radius: 20px;
-    width: 90%;
-    max-width: 300px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    position: relative;
-}
-.bank-logo {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 0px;
-}
-.bank-name {
-    font-size: 16px;
-    margin-bottom: 0px;
-}
-.account-number {
-    font-size: 20px;
-    color: #1e90ff;
-    margin-bottom: 10px;
-    text-decoration: underline;
-}
-.copy-button {
-    display: inline-block;
-    background-color: #ff4500;
-    color: #fff;
-    padding: 5px 15px; /*ปรับขนาดปุ่มคัดลอก*/
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    font-size: 16px;
-}
-.account-holder {
-    margin-top: 10px;
-    font-size: 18px;
-}
-.quotation-holder {           
-    font-size: 18px;
-    color: #f7d317;  /*color red #FF0000*/          
-}
-        /**/
+            padding: 5px 20px;
+            font-family: "Sriracha", cursive;
+            font-size: 16px;
+            color: white;
+            background-color: #f0ad4e;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
 
-.copied {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #32CD32;
-    color: #fff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 12px;
+#qrcode {
+            margin-top: 5px;
+            position: relative;
+            width: 256px;
+            height: 256px;
+            margin-bottom: 10px;
+          }
+#qrcode-img, #new-qrcode-img {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: opacity 0.1s;
+            border-radius: 10px;
+          }
+#new-qrcode-img {
+            opacity: 0;
+          }
+#amount-display {
+            font-family: Sriracha;
+            font-size: 18px;
+            color: white;
+            background-color: green;
+            margin-top: -5px;
+            margin-bottom: 5px;
+            border-radius: 5px;
+/*             -webkit-text-stroke: 0.1px white; ขอบตัวเลข*/
+          }
+
+        /*block follow me*/
+.follow-logo {
+    width: 170px;
+    height: auto;
+    margin: 5px;
+    margin-top: -5px;
 }
-.copied.show {
-    display: block;
+
+/*button youtube*/
+      button1 {
+            padding: 5px 20px;
+            font-family: "Sriracha", cursive;
+            font-size: 16px;
+            color: white;
+            background-color: #FF0000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+/*button instagram*/
+      button2 {
+            padding: 5px 20px;
+            font-family: "Sriracha", cursive;
+            font-size: 16px;
+            color: white;
+            background: #f09433; /*color gradient*/
+            background: -moz-linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); 
+            background: -webkit-linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f09433', endColorstr='#bc1888',GradientType=1 );
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+/*button facebook*/
+      button3 {
+            padding: 5px 20px;
+            font-family: "Sriracha", cursive;
+            font-size: 16px;
+            color: white;
+            background-color: #3b5998;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+/*button shopee*/
+      button4 {
+            padding: 5px 20px;
+            font-family: "Sriracha", cursive;
+            font-size: 16px;
+            color: white;
+            background-color: #EE4D2D;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+            /* block bank */
+        .warning {
+            color: #f7d317;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .bank-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: -10px;
+            gap: 20px;
+        }
+        @media (min-width: 100px) {
+            .bank-container {
+                flex-direction: row;
+                justify-content: center;
+            }
+        }
+        .bank-card {
+            background-color: #1a1a1a;
+            padding: 10px;
+            border-radius: 20px;
+            width: 90%;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        .bank-logo {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 0px;
+        }
+        .bank-name {
+            font-size: 16px;
+            margin-bottom: 0px;
+        }
+        .account-number {
+            font-size: 20px;
+            color: #1e90ff;
+            margin-bottom: 10px;
+            text-decoration: underline;
+        }
+        .copy-button {
+            display: inline-block;
+            background-color: #ff4500;
+            color: #fff;
+            padding: 5px 15px; /*ปรับขนาดปุ่มคัดลอก*/
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        .account-holder {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+        .quotation-holder {           
+            font-size: 18px;
+            color: #f7d317;  /*color red #FF0000*/          
+        }
+        .copied {
+            display: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #32CD32;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+        .copied.show {
+            display: block;
+            
