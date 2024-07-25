@@ -67,7 +67,7 @@
         let amount = Number(document.getElementById('amount').value);
         const amountDisplay = document.getElementById('amount-display');
         if (amount !== lastAmount) {
-            let x = promptpayQr('0944702228', {amount: amount});
+            let x = promptpayQr('0644046460', {amount: amount});
             const newQRCodeImg = document.getElementById('new-qrcode-img');
             newQRCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(x) + '&size=256x256&margin=10';
             lastAmount = amount;
@@ -88,7 +88,7 @@
     document.getElementById('amount').addEventListener('input', updateQRCode);
 
     function generateInitialQRCode() {
-        let x = promptpayQr('0944702228');
+        let x = promptpayQr('0644046460');
         const qrCodeImg = document.getElementById('qrcode-img');
         qrCodeImg.src = 'https://api.qrserver.com/v1/create-qr-code/?data=' + encodeURIComponent(x) + '&size=256x256&margin=10';
         document.getElementById('amount-display').textContent = '';
