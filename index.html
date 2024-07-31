@@ -144,21 +144,19 @@
 </script>
                               <!--  Copy account number to clipboard  -->
     <script> 
-function copyToClipboard(elementId) {
-            var copyText = document.getElementById(elementId).textContent;
-            var tempInput = document.createElement("input");
-            document.body.appendChild(tempInput);
-            tempInput.value = copyText;
-            tempInput.select();
-            document.execCommand("copy");
-            document.body.removeChild(tempInput);
-
+    function copyToClipboard(elementId) {
+        var copyText = document.getElementById(elementId).textContent;
+    
+        navigator.clipboard.writeText(copyText).then(function() {
             var copiedMessage = document.getElementById('copied-' + elementId.split('-')[2]);
             copiedMessage.classList.add('show');
             setTimeout(function() {
                 copiedMessage.classList.remove('show');
             }, 2000);
-        }
+        }).catch(function(error) {
+            console.error('Failed to copy text: ', error);
+        });
+    }
     </script>
                               <!--  script button link open social media  -->
   <script>
